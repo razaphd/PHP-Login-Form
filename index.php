@@ -1,17 +1,3 @@
-<?php
-ob_start();
-session_start();
-require_once 'dbconnect.php';
-
-if (!isset($_SESSION['user'])) {
-    header("Location: login.php");
-    exit;
-}
-// select logged in users detail
-$res = $conn->query("SELECT * FROM users WHERE id=" . $_SESSION['user']);
-$userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
-
-?>
 <!DOCTYPE html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
